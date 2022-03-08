@@ -19,13 +19,5 @@
         &:hover {
             border-bottom: 2px solid #fff;
         }
-        &::after {
-            position: absolute;
-            content: '';
-            border-bottom: 1px solid #d2d7da;
-            width: 70%;
-            transform: translateX(-50%);
-            bottom: -15px;
-        }
     }
 }

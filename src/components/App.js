@@ -7,14 +7,14 @@ import '../styles/App.css';
 
 function App() {
   return (
-    <>
+    <div className='body_container'>
       <Header />
       <Navigator />
       <Routes>
           <Route exact path='/' element={<Main />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 
