@@ -17,7 +17,11 @@
         text-shadow: none;
         text-align: center;
         &:hover {
-            border-bottom: 2px solid #fff;
+            border-bottom: 2px solid #e07223;
+            color: #e07223;
+        }
+        &:active {
+            color: #000;
         }
     }
 }

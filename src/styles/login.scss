@@ -10,4 +10,10 @@
     text-indent: 0px;
     text-shadow: none;
     text-align: center;
+    &:hover {
+        color: #e07223;
+    }
+    &:active {
+        color: #000;
+    }
 }
