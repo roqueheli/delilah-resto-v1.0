@@ -1,0 +1,30 @@
+.shoppingcart {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin-right: 2rem;
+    border-radius: 8px;
+    color: #fff;
+    min-width: 150px;
+    padding: 0 20px;
+    height: 40px;
+    text-transform: uppercase;
+    transition: all .1s cubic-bezier(.79,.01,.375,.995);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: transparent;
+    cursor: pointer;
+    border-style: none;
+    border: 1px solid #ffffff;
+    &:hover {
+        background-color: #000;
+        color: #e07223;
+        border: 1px solid #e07223;
+    }
+    &:active {
+        background-color: #e07223;
+        color: #000;
+        border: 1px solid #000;
+    }
+}

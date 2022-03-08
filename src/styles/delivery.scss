@@ -1,0 +1,31 @@
+.delivery_container {
+    width: 12%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+        font-family: 'Barlow', sans-serif;
+        background: transparent;
+        cursor: pointer;
+        border-style: none;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 700;
+        word-spacing: 3px;
+        text-indent: 0px;
+        text-shadow: none;
+        text-align: center;
+        &:hover {
+            border-bottom: 2px solid #fff;
+        }
+        &::after {
+            position: absolute;
+            content: '';
+            border-bottom: 1px solid #d2d7da;
+            width: 70%;
+            transform: translateX(-50%);
+            bottom: -15px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap');
+
+main {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    height: 74.5vh;
+    overflow: scroll;
+    section {
+        margin-top: 1rem;
+        margin-left: 3rem;
+        .cards_container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+    }
+}

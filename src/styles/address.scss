@@ -1,0 +1,28 @@
+.address_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 2.5rem;
+    width: 25%;
+    border-radius: .3rem;
+    input {
+        font-family: 'Barlow', sans-serif;
+        width: 65%;
+        height: 100%;
+        border: none;
+        padding: 1rem;
+        outline: 0;
+    }
+    button {
+        font-family: 'Barlow', sans-serif;
+        border-radius: .3rem;
+        width: 35%;
+        height: 85%;
+        margin-right: .17rem;
+        border: none;
+        background-color: #e07223;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+}
