@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MainContext } from '../../context/mainContext';
 import '../../styles/card.scss';
 
 function Card() {
+  const { setIsProduct } = useContext(MainContext);
+
   return (
-    <div className='card_container'>
+    <div onClick={() => setIsProduct(true)} className='card_container'>
         <div className='text_container'>
             <div className='text_subcontainer'>
                 <h1>Hamburguesa Maracucha</h1>

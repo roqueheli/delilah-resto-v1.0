@@ -19,18 +19,20 @@
         margin: .8rem;
         .text_subcontainer {
             height: 9rem;
-        }
-        h1 {
-            display: flex;
-            align-items: center;
-        }
-        p {
-            color: #6d7278;
-            text-overflow: ellipsis;
-            white-space: normal;
-            font-weight: 300;
-            line-height: 17px;
-            margin-top: 5px;
+            h1 {
+                display: flex;
+                align-items: center;
+                padding: .2rem;
+            }
+            p {
+                color: #6d7278;
+                text-overflow: ellipsis;
+                white-space: normal;
+                font-weight: 300;
+                line-height: 17px;
+                margin-top: 5px;
+                padding: .2rem;
+            }
         }
         h4 {
             font-family: 'Barlow', sans-serif;

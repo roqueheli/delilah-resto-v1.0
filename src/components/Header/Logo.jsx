@@ -4,7 +4,7 @@ import '../../styles/logo.css';
 
 function Logo() {
   return (
-    <Link className='logo_' to='/'><img src='../../../../images/logo.png' alt='commerce logo' /></Link>
+    <Link onClick="document.documentElement.scrollIntoView({ behavior: 'smooth' });" className='logo_' to='/'><img src='../../../../images/logo.png' alt='commerce logo' /></Link>
   )
 }
 

@@ -12,6 +12,7 @@ function App() {
       <Navigator />
       <Routes>
           <Route exact path='/' element={<Main />} />
+          <Route path='/' element={<Main />} />
       </Routes>
       <Footer />
     </div>

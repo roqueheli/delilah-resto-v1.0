@@ -1,16 +1,21 @@
 import React, { useContext } from 'react';
 import { MainContext } from '../../context/mainContext';
 import Card from '../Card/Card';
-import ModalLogin from '../Login/ModalLogin';
+import ModalLogin from '../Modals/ModalLogin';
+import ModalCart from '../Modals/ModalCart';
+import ModalProduct from '../Modals/ModalProduct';
 import '../../styles/main.scss';
 
 function Main() {
-    const { isOpen } = useContext(MainContext);
+    const { isLogin, isCart, isProduct } = useContext(MainContext);
+
     return (
         <main>
-            {isOpen ? <ModalLogin /> : null}
+            {isLogin ? <ModalLogin /> : null}
+            {isCart ? <ModalCart /> : null}
+            {isProduct ? <ModalProduct /> : null}
             <section id='hamburguers'>
-                <p>Hamburguesas</p>
+                <h3>Hamburguesas</h3>
                 <div className='cards_container'>
                     <Card />
                     <Card />
@@ -21,7 +26,7 @@ function Main() {
                 </div>
             </section>
             <section id='hotdogs'>
-                <p>Perros Calientes</p>
+                <h3>Perros Calientes</h3>
                 <div className='cards_container'>
                     <Card />
                     <Card />
@@ -30,13 +35,21 @@ function Main() {
                 </div>
             </section>
             <section id='arepas'>
-                <p>Arepas</p>
+                <h3>Arepas</h3>
                 <div className='cards_container'>
                     <Card />
                 </div>
             </section>
+            <section id='combos'>
+                <h3>Combos</h3>
+                <div className='cards_container'>
+                    <Card />
+                    <Card />
+                    <Card />
+                </div>
+            </section>
             <section id='drinks'>
-                <p>Bebidas</p>
+                <h3>Bebidas</h3>
                 <div className='cards_container'>
                     <Card />
                     <Card />
@@ -46,7 +59,7 @@ function Main() {
                 </div>
             </section>
             <section id='extras'>
-                <p>Adicionales</p>
+                <h3>Adicionales</h3>
                 <div className='cards_container'>
                     <Card />
                     <Card />
