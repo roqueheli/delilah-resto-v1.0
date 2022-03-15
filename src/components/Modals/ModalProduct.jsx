@@ -3,8 +3,14 @@ import { MainContext } from '../../context/mainContext';
 import '../../styles/modal.scss';
 
 function ModalProduct() {
-    const { setIsProduct, product } = useContext(MainContext);
+    const { setIsProduct, product, handlePrice, handleDecrease, handleIncrease, value } = useContext(MainContext);
 
+    document.body.addEventListener("keydown", function(event) {
+        if (event.code === 'Escape' || event.keyCode === 27) {
+        setIsProduct(false);
+        }
+    });
+    
     return (
         <article className='modal is-open' onClick={() => setIsProduct(false)}>
             <div className='modal-container modal_cart' onClick={(e) => e.stopPropagation()} >
@@ -80,11 +86,11 @@ function ModalProduct() {
                         </div>
                         <div className='counter_container'>
                             <div>
-                                <button>-</button>
-                                <h5>0</h5>
-                                <button>+</button>
+                                <button onClick={handleDecrease}>-</button>
+                                <h5>{value}</h5>
+                                <button onClick={handleIncrease}>+</button>
                             </div>
-                            <button type='submit'><span>Agregar</span><span>{`$ ${product.price}`}</span></button>
+                            <button type='submit'><span>Agregar</span><span>{handlePrice(product.price)}</span></button>
                         </div>
                     </article>
                 </div>

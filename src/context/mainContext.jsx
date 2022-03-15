@@ -12,6 +12,7 @@ export default function MainProvider({ children }) {
     const [isLoading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [product, setProduct] = useState({});
+    const [value, setValue] = useState(0);
 
     useEffect(() => {
       setLoading(false);
@@ -27,8 +28,30 @@ export default function MainProvider({ children }) {
       })();
     }, []);
 
+    const formatter = new Intl.NumberFormat('es-CL', {
+      style: 'currency',
+      currency: 'CLP',
+      minimumFractionDigits: 0
+    });
+
+    const handlePrice = (prodprice) => {
+      const price = formatter.format(prodprice);
+      return price;
+    }
+
+    const handleDecrease = () => {
+      if (value > 0) {
+        setValue(value - 1);
+      }
+      
+    }
+    
+    const handleIncrease = () => {
+      setValue(value + 1);
+    }
+
     return (
-        <MainContext.Provider value={ { isLogin, setIsLogin, isCart, setIsCart, isProduct, setIsProduct, isCodeSent, setCodeSent, isRegister, setRegister, isInit, setInit, isLoading, setLoading, data, setData, product, setProduct } }>
+        <MainContext.Provider value={ { isLogin, setIsLogin, isCart, setIsCart, isProduct, setIsProduct, isCodeSent, setCodeSent, isRegister, setRegister, isInit, setInit, isLoading, setLoading, data, setData, product, setProduct, handlePrice, handleDecrease, handleIncrease, value } }>
           {children}
         </MainContext.Provider>
     );

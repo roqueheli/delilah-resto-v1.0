@@ -3,7 +3,7 @@ import { MainContext } from '../../context/mainContext';
 import '../../styles/card.scss';
 
 function Card({ dataProducts }) {
-  const { setIsProduct, setProduct } = useContext(MainContext);
+  const { setIsProduct, setProduct, handlePrice } = useContext(MainContext);
 
   const handleClick = (product) => {
     setIsProduct(true);
@@ -20,7 +20,7 @@ function Card({ dataProducts }) {
                         <h1>{product.name}</h1>
                         <p>{product.description}</p>
                     </div>
-                    <h4>{`$ ${product.price}`}</h4>
+                    <h4>{handlePrice(product.price)}</h4>
                 </div>
                 <div className='img_container'>
                     <img src={product.productImages[0].location} alt={product.name.toLowerCase()} />
