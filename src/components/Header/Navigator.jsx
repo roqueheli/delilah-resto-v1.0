@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MainContext } from '../../context/mainContext';
 import '../../styles/navigator.scss';
 
 function Navigator() {
+  const { data } = useContext(MainContext);
+
   return (
     <nav>
         <ul>
-          <li><a href="#hamburguers" activeclassname='active'>Hamburguesas</a></li>
-          <li><a href="#hotdogs" activeclassname='active'>Perros Calientes</a></li>
-          <li><a href="#arepas" activeclassname='active'>Arepas</a></li>
-          <li><a href="#combos" activeclassname='active'>Combos</a></li>
-          <li><a href="#drinks" activeclassname='active'>Bebidas</a></li>
-          <li><a href="#extras" activeclassname='active'>Adicionales</a></li>
+          {data.data && data.data.map((categories, index) => {
+              return (
+                <li key={index}><a href={`#${categories.name.toLowerCase()}`}>{categories.name.toUpperCase()}</a></li>
+              )
+            })
+          }
         </ul>
     </nav>
   )

@@ -3,7 +3,7 @@ import { MainContext } from '../../context/mainContext';
 import '../../styles/modal.scss';
 
 function ModalProduct() {
-    const { setIsProduct } = useContext(MainContext);
+    const { setIsProduct, product } = useContext(MainContext);
 
     return (
         <article className='modal is-open' onClick={() => setIsProduct(false)}>
@@ -11,12 +11,12 @@ function ModalProduct() {
                 <button type='button' onClick={() => setIsProduct(false)} className='modal-close'>X</button>
                 <div className='modal_subcontainer'>
                     <div className='img_container'>
-                        <img src='../../../../images/burger.png' alt='Burguer' />
+                        <img src={product.productImages[0].location} alt={product.name.toLowerCase()} />
                     </div>
                     <article>
                         <div className='article_subcontainer'>
-                            <h1>Hamburguesa Maracucha</h1>
-                            <p>Hamburguesa maracucha mixta, 2 proteínas a escoger. Carne, Pollo o Chuleta</p>
+                            <h1>{product.name}</h1>
+                            <p>{product.description}</p>
                         </div>
                         <div className='article_content'>
                             <div className='additionals_header'>
@@ -84,13 +84,12 @@ function ModalProduct() {
                                 <h5>0</h5>
                                 <button>+</button>
                             </div>
-                            <button type='submit'><span>Agregar</span><span>$ 9.990</span></button>
+                            <button type='submit'><span>Agregar</span><span>{`$ ${product.price}`}</span></button>
                         </div>
                     </article>
                 </div>
             </div>
         </article>
-
     )
 }
 

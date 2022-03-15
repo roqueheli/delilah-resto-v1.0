@@ -53,6 +53,65 @@
     max-height: 800px;
 }
 
+.logincode_container {
+    font-family: 'Barlow', sans-serif !important;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 20rem;
+    form {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        div {
+            width: 80%;
+            input {
+                margin-top: .5rem;
+                width: 100%;
+                padding: .8rem;
+                outline: 0;
+                background-color: #efefef;
+                border: none;
+                border-radius: .2rem;
+            }
+        }
+        button {
+            width: 65%;
+            padding: 1.4rem;
+            margin-top: 1.8rem;
+            color: #ffffff;
+            transition: all .29s cubic-bezier(.79,.01,.375,.995);
+            background-color: #094aa8;
+            border: none;
+            border-radius: .2rem;
+        }
+    }
+    .aviso_login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        p {
+            text-align: justify;
+            width: 78%;
+            font-size: .9rem;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: #6d7278;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        &:hover {
+            color: #094aa8;
+        }
+    }
+}
+
 .form_container {
     font-family: 'Barlow', sans-serif !important;
     display: flex;
@@ -105,6 +164,7 @@
         padding: 1rem;
         font-size: 1rem;
         font-weight: 600;
+        text-align: center;
         &:hover {
             color: #094aa8;
         }
@@ -131,6 +191,7 @@
         height: 100%;
         width: 55%;
         img {
+            height: 100%;
             width: 100%;
         }
     }

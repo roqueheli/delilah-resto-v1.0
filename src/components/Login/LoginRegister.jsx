@@ -2,14 +2,11 @@ import React, { useContext } from 'react';
 import { MainContext } from '../../context/mainContext';
 import '../../styles/modal.scss';
 
-function LoginInit() {
-    const { setIsLogin, setCodeSent, setRegister, setInit } = useContext(MainContext);
+function LoginRegister() {
+    const { setIsLogin, setRegister, setInit, setCodeSent } = useContext(MainContext);
 
     const handleLogin = (e) => {
         e.preventDefault();
-        setCodeSent(true);
-        setInit(false);
-        setRegister(false);
     }
 
     const handleClose = () => {
@@ -26,17 +23,19 @@ function LoginInit() {
             <div className='form_container'>
                 <form method='POST'>
                     <div>
-                        <label>Correo electrónico</label>
-                        <input type='email' name='email' id='email' />
+                        <label>Nombre</label>
+                        <input type='text' name='name' id='name' />
+                        <label>Teléfono</label>
+                        <input type='tel' name='phone' id='phone' placeholder='+569'/>
                     </div>
-                    <button onClick={handleLogin} type='submit'>INGRESAR</button>
+                    <button onClick={handleLogin} type='submit'>COMENZAR</button>
                 </form>
                 <div className='aviso_login'>
-                    <p>Recibirás un código de verificación en tu correo para ingresar</p>
+                    <p>Continuando, estoy aceptando los <a href="/">Términos y Condiciones</a> de Mercat</p>
                 </div>
             </div>
         </div>
     )
 }
 
-export default LoginInit;
+export default LoginRegister;

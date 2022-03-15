@@ -3,10 +3,18 @@ import { MainContext } from '../../context/mainContext';
 import '../../styles/login.scss';
 
 function Login() {
-  const { setIsLogin } = useContext(MainContext);
+  const { setIsLogin, setInit, setRegister, setCodeSent } = useContext(MainContext);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setIsLogin(true);
+    setInit(true);
+    setRegister(false);
+    setCodeSent(false);
+  }
 
   return (
-    <button onClick={() => setIsLogin(true)} className='login_'>INICIAR SESION</button>
+    <button onClick={handleLogin} className='login_'>INICIAR SESION</button>
   )
 }
 
