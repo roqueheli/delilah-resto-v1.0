@@ -3,29 +3,26 @@ import { MainContext } from '../../context/mainContext';
 import '../../styles/modal.scss';
 
 function LoginCode() {
-    const { setIsLogin, setCodeSent, setRegister, setInit, isRegister } = useContext(MainContext);
+    const { setIsLogin, setCodeSent, setInit } = useContext(MainContext);
     
     const handleClose = (e) => {
         e.stopPropagation();
-        setRegister(false);
         setCodeSent(false);
         setIsLogin(false)
         setInit(true);
     }
     
     const handleTryAgain = (e) => {
-        e.preventDefault();
+        e.stopPropagation();
         setCodeSent(false);
-        setRegister(false);
+        setIsLogin(true);
         setInit(true);
     }
 
     const handleRegister = (e) => {
-        e.preventDefault();
+        e.stopPropagation();
         setCodeSent(false);
         setInit(false);
-        setRegister(true);
-        console.log('register', isRegister );
     }
 
     return (
@@ -44,7 +41,7 @@ function LoginCode() {
                             <input type='text' minLength='1' maxLength='1' name='code' id='code' />
                         </div>
                     </div>
-                    <a href='/' onClick={handleTryAgain}>Reintentar con otro correo</a>
+                    <a href='#' onClick={handleTryAgain}>Reintentar con otro correo</a>
                     <button onClick={handleRegister} type='submit'>INGRESAR</button>
                 </form>
             </div>

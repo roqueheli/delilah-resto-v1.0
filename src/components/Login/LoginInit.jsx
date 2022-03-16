@@ -3,18 +3,16 @@ import { MainContext } from '../../context/mainContext';
 import '../../styles/modal.scss';
 
 function LoginInit() {
-    const { setIsLogin, setCodeSent, setRegister, setInit } = useContext(MainContext);
+    const { setIsLogin, setCodeSent, setInit } = useContext(MainContext);
 
     const handleLogin = (e) => {
-        e.preventDefault();
+        e.stopPropagation();
         setCodeSent(true);
         setInit(false);
-        setRegister(false);
     }
 
     const handleClose = () => {
         setIsLogin(false);
-        setRegister(false);
         setInit(true);
         setCodeSent(false);
     }

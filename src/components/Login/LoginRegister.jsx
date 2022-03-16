@@ -26,7 +26,7 @@ function LoginRegister() {
                         <label>Nombre</label>
                         <input type='text' name='name' id='name' />
                         <label>Teléfono</label>
-                        <input type='tel' name='phone' id='phone' placeholder='+569'/>
+                        <input type='tel' name='phone' id='phone' placeholder='+56 (9)'/>
                     </div>
                     <button onClick={handleLogin} type='submit'>COMENZAR</button>
                 </form>
