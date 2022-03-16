@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { MainContext } from '../../context/mainContext';
+import Counter from '../Commons/Counter';
 import '../../styles/modal.scss';
 
 function ModalProduct() {
-    const { setIsProduct, product, handlePrice, handleDecrease, handleIncrease, value } = useContext(MainContext);
+    const { setIsProduct, product, handlePrice } = useContext(MainContext);
 
     document.body.addEventListener("keydown", function(event) {
         if (event.code === 'Escape' || event.keyCode === 27) {
@@ -17,7 +18,7 @@ function ModalProduct() {
                 <button type='button' onClick={() => setIsProduct(false)} className='modal-close'>X</button>
                 <div className='modal_subcontainer'>
                     <div className='img_container'>
-                        <img src={product.productImages[0].location} alt={product.name.toLowerCase()} />
+                        <img src={product.avatar} alt={product.name.toLowerCase()} />
                     </div>
                     <article>
                         <div className='article_subcontainer'>
@@ -32,36 +33,28 @@ function ModalProduct() {
                             <ul>
                                 <li>
                                     <div className='li_counter'>
-                                        <button>-</button>
-                                        <h5>0</h5>
-                                        <button>+</button>
+                                        <Counter />
                                     </div>
                                     <span className='li_tittle'>Chuleta ahumada</span>
                                     <span className='li_price'>$ 1.500</span>
                                 </li>
                                 <li>
                                     <div className='li_counter'>
-                                        <button>-</button>
-                                        <h5>0</h5>
-                                        <button>+</button>
+                                        <Counter />
                                     </div>
                                     <span className='li_tittle'>Filete de pollo</span>
                                     <span className='li_price'>$ 1.000</span>
                                 </li>
                                 <li>
                                     <div className='li_counter'>
-                                        <button>-</button>
-                                        <h5>0</h5>
-                                        <button>+</button>
+                                        <Counter />
                                     </div>
                                     <span className='li_tittle'>Carne mechada</span>
                                     <span className='li_price'>$ 1.500</span>
                                 </li>
                                 <li>
                                     <div className='li_counter'>
-                                        <button>-</button>
-                                        <h5>0</h5>
-                                        <button>+</button>
+                                        <Counter />
                                     </div>
                                     <span className='li_tittle'>Carne asada</span>
                                     <span className='li_price'>$ 2.000</span>
@@ -85,11 +78,9 @@ function ModalProduct() {
                             </ul>
                         </div>
                         <div className='counter_container'>
-                            <div>
-                                <button onClick={handleDecrease}>-</button>
-                                <h5>{value}</h5>
-                                <button onClick={handleIncrease}>+</button>
-                            </div>
+                            <>
+                                <Counter />
+                            </>
                             <button type='submit'><span>Agregar</span><span>{handlePrice(product.price)}</span></button>
                         </div>
                     </article>

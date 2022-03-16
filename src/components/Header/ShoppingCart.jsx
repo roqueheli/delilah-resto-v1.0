@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { MainContext } from '../../context/mainContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
-import '../../styles/shoppingcart.scss'
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import '../../styles/shoppingcart.scss';
 
 function ShoppingCart() {
   const { setIsCart } = useContext(MainContext);

@@ -23,7 +23,7 @@ function Card({ dataProducts }) {
                     <h4>{handlePrice(product.price)}</h4>
                 </div>
                 <div className='img_container'>
-                    <img src={product.productImages[0].location} alt={product.name.toLowerCase()} />
+                    <img src={product.avatar} alt={product.name.toLowerCase()} />
                 </div>
             </div> 
           )

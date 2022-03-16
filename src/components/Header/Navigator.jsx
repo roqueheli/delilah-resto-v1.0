@@ -8,7 +8,7 @@ function Navigator() {
   return (
     <nav>
         <ul>
-          {data.data && data.data.map((categories, index) => {
+          {data && data.map((categories, index) => {
               return (
                 <li key={index}><a href={`#${categories.name.toLowerCase()}`}>{categories.name.toUpperCase()}</a></li>
               )

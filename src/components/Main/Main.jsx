@@ -15,12 +15,12 @@ function Main() {
             {isLogin ? <ModalLogin /> : null}
             {isCart ? <ModalCart /> : null}
             {isProduct ? <ModalProduct /> : null}
-            {!isLoading ? <Loader /> : data.data && data.data.map((categories, index) => {
+            {!isLoading ? <Loader /> : data && data.map((categories, index) => {
                 return (
                     <section id={categories.name.toLowerCase()} key={index}>
                         <h3>{categories.name}</h3>
                         <div className='cards_container'>
-                            <Card dataProducts={categories.products} />
+                            <Card dataProducts={categories.product} />
                         </div>
                     </section>
                 )

@@ -11,8 +11,8 @@ function Footer() {
                 <section className="iconos_footer">
                     <a href="https://www.instagram.com/abueloburgers.cl/" target="_blank" rel="noreferrer"><FontAwesomeIcon className='img_footer' icon={faInstagram}/></a>
                 </section>
-                <section>
-                    <p>Powered by: Catatumbo Technologies SpA</p>
+                <section className='catatumbo_subcontainer'>
+                    <img className='img_catatumbo' src="../../../../images/CatLogo.png" alt="catatumbo-logo" />
                 </section>
             </div>
         </footer>

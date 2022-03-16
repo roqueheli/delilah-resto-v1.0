@@ -12,12 +12,12 @@ function LoginCode() {
         setInit(true);
     }
     
-    const handleTryAgain = (e) => {
-        e.stopPropagation();
-        setCodeSent(false);
-        setIsLogin(true);
-        setInit(true);
-    }
+    // const handleTryAgain = (e) => {
+    //     e.stopPropagation();
+    //     setCodeSent(false);
+    //     setIsLogin(true);
+    //     setInit(true);
+    // }
 
     const handleRegister = (e) => {
         e.stopPropagation();
@@ -41,7 +41,7 @@ function LoginCode() {
                             <input type='text' minLength='1' maxLength='1' name='code' id='code' />
                         </div>
                     </div>
-                    <a href='#' onClick={handleTryAgain}>Reintentar con otro correo</a>
+                    {/* <a href='#' onClick={handleTryAgain}>Reintentar con otro correo</a> */}
                     <button onClick={handleRegister} type='submit'>INGRESAR</button>
                 </form>
             </div>

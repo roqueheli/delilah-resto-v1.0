@@ -18,9 +18,9 @@ export default function MainProvider({ children }) {
       setLoading(false);
       (async () => {
         try {
-          const rs = await fetch('http://localhost:3001/api/product');
+          const rs = await fetch('http://localhost:3005/app/category');
           const data = await rs.json();
-          setData(data);
+          setData(data.category);
           setLoading(true);
         } catch (e) {
           console.log(e);

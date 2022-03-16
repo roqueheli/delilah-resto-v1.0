@@ -21,6 +21,18 @@ footer {
     padding: 1rem;
 }
 
+.catatumbo_subcontainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 10%;
+    height: 3rem;
+}
+
+.img_catatumbo {
+    width: 70%;
+}
+
 .day_mode {
     color: lightgrey;
 }

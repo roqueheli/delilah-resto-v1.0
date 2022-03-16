@@ -1,20 +1,31 @@
-import React, { useContext } from 'react';
-import { MainContext } from '../../context/mainContext';
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/login.scss';
 
 function Login() {
-  const { setIsLogin, setInit, setRegister, setCodeSent } = useContext(MainContext);
+  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    setIsLogin(true);
-    setInit(true);
-    setRegister(false);
-    setCodeSent(false);
-  }
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   setIsLogin(true);
+  //   setInit(true);
+  //   setRegister(false);
+  //   setCodeSent(false);
+  // }
 
   return (
-    <button onClick={handleLogin} className='login_'>INICIAR SESION</button>
+    <>
+      {!isAuthenticated ? 
+        <button onClick={() => loginWithRedirect()} className='login_'>INICIAR SESION</button>  
+      :
+        <div className='content_logout'>
+          <p className='logout_tittle' >{user.name}</p>
+          <button className="button_login" onClick={() => logout({returnTo: window.location.origin})}><FontAwesomeIcon icon={faSignOutAlt} /></button>
+        </div>
+      }
+    </>
   )
 }
 
