@@ -1,11 +1,12 @@
-import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import GoogleLogin from 'react-google-login';
 import '../../styles/login.scss';
 
 function Login() {
-  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
+  const [isLogged, setLogged] = useState(false);
+  const [name, setName] = useState(false);
 
   // const handleLogin = (e) => {
   //   e.preventDefault();
@@ -15,14 +16,32 @@ function Login() {
   //   setCodeSent(false);
   // }
 
+  const handleSuccess = (googleData) => {
+    setName(googleData.profileObj.name);
+    setLogged(true);
+  }
+
+  const handleFailure = (result) => {
+    alert(result);
+    setLogged(false);
+  }
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setLogged(false);
+  }
+
   return (
     <>
-      {!isAuthenticated ? 
-        <button onClick={() => loginWithRedirect()} className='login_'>INICIAR SESION</button>  
+      {!isLogged ? 
+        <>
+          <GoogleLogin className='login_' clientId='782195424572-fepg9gi1igknvsrh1g8r00evjkg80jd3.apps.googleusercontent.com' buttonText={`INICIAR SESION`.toLocaleUpperCase()} 
+          onSuccess={handleSuccess} onFailure={handleFailure} cookiePolicy={`single_host_origin`}/>
+        </>
       :
         <div className='content_logout'>
-          <p className='logout_tittle' >{user.name}</p>
-          <button className="button_login" onClick={() => logout({returnTo: window.location.origin})}><FontAwesomeIcon icon={faSignOutAlt} /></button>
+          <p className='logout_tittle' >{name}</p>
+          <button className="button_login" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /></button>
         </div>
       }
     </>

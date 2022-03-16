@@ -8,7 +8,7 @@ function Card({ dataProducts }) {
   const handleClick = (product) => {
     setIsProduct(true);
     setProduct(product);
-  }
+  } 
 
   return (
     <>
