@@ -39,7 +39,11 @@ function Login() {
     <>
       {!loginData ? 
         <>
-          <GoogleLogin className='login_' clientId='782195424572-fepg9gi1igknvsrh1g8r00evjkg80jd3.apps.googleusercontent.com' buttonText={`INICIAR SESION`.toLocaleUpperCase()} 
+          <GoogleLogin icon={false}
+          render={renderProps => (
+            <button onClick={renderProps.onClick} disabled={renderProps.disabled} className='login_'>INICIAR SESION</button>
+          )}
+          className='login_' clientId='782195424572-fepg9gi1igknvsrh1g8r00evjkg80jd3.apps.googleusercontent.com' buttonText={`INICIAR SESION`.toLocaleUpperCase()} 
           onSuccess={handleSuccess} onFailure={handleFailure} cookiePolicy={`single_host_origin`}/>
         </>
       :
