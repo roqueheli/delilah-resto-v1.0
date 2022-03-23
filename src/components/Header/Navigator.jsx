@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { MainContext } from '../../context/mainContext';
-import Login from '../Login/Login';
 import '../../styles/navigator.scss';
 
 function Navigator() {
@@ -18,7 +17,6 @@ function Navigator() {
             }
           </ul>
       </nav>
-      <Login />
     </>
   )
 }
