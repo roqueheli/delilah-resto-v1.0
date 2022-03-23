@@ -1,12 +1,20 @@
 import React from 'react';
+import Search from '../Address/Search';
 import '../../styles/address.scss';
+import '@reach/combobox/styles.css';
 
-function Address() {
+function Address() {  
   return (
-    <div className='address_container'>
-        <input type="text" placeholder='Ingresa tu dirección'/>
-        <button>Cuanto antes</button>
-    </div>
+    <article className='address__ind'>
+      <Search />
+      <div className='address__div'>
+        <span>Ej: Santiago 123</span>
+      </div>
+      <input type="text" name="depto" id="depto" placeholder='Indicaciones de entrega' />
+      <div className='address__div'>
+        <span>Ej: Número de Depto / Casa</span>
+      </div>
+    </article>
   )
 }
 

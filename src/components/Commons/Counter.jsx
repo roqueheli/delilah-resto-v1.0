@@ -1,15 +1,20 @@
-import React, { useContext } from 'react';
-import { MainContext } from '../../context/mainContext';
+import React from 'react';
 import '../../styles/modal.scss';
 
-function Counter() {
-    const { handleDecrease, handleIncrease, value } = useContext(MainContext);
+function Counter({ handleAddCountAdd, handleAddCountLess, count, id}) {
+    const additionalIncrease = () => {
+        handleAddCountAdd(id);
+    }
+
+    const additionalDecrease = () => {
+        handleAddCountLess(id);
+    }
 
     return (
             <div className='counter_'>
-                <button onClick={handleDecrease}>-</button>
-                <h5>{value}</h5>
-                <button onClick={handleIncrease}>+</button>
+                <button onClick={additionalDecrease}>-</button>
+                <h5>{count}</h5>
+                <button onClick={additionalIncrease}>+</button>
             </div>
     )
 }

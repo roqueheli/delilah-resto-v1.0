@@ -1,0 +1,32 @@
+.menu_list {
+    font-family: 'Barlow', sans-serif;
+    background: #094aa8;
+    border-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: .85rem;
+    font-weight: 700;
+    word-spacing: 3px;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 4.3rem;
+    width: 11%;
+    display: flex;
+    height: 7rem;
+    flex-wrap: wrap;
+    flex-flow: column;
+    justify-content: space-around;
+    text-align: left;
+    padding: .6rem;
+    border-bottom-left-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    li {
+        margin-bottom: .2rem;
+        &:hover {
+            color: #e07223;
+        }
+    }
+}

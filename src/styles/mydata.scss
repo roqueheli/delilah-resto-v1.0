@@ -1,0 +1,19 @@
+.mydata_container {
+    .mydata_container {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 23.8rem;
+        padding: 1rem;
+        label {
+            margin-bottom: .5rem;
+        }
+        input {
+            width: 60%;
+            height: 2.5rem;
+            font-size: 1rem;
+            margin-bottom: .5rem;
+            padding: .5rem;
+        }
+    }
+}

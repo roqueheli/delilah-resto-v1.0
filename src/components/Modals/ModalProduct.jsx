@@ -1,9 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { MainContext } from '../../context/mainContext';
 import Counter from '../Commons/Counter';
 import '../../styles/modal.scss';
 
+const additionals = [
+    {
+        id: 1,
+        name: "Chuleta ahumada",
+        price: 1500,
+        count: 0
+   },
+   {
+        id: 2,
+        name: "Filete de pollo",
+        price: 1000,
+        count: 0
+    },
+    {
+        id: 3,
+        name: "Carne mechada",
+        price: 1500,
+        count: 0
+   },
+   {
+        id: 4,
+        name: "Carne asada",
+        price: 2000,
+        count: 0
+    },
+]
+
 function ModalProduct() {
+    const [countList, setCountList] = useState(additionals);
+    const [countProduct, setCountProduct] = useState(0);
     const { setIsProduct, product, handlePrice } = useContext(MainContext);
 
     document.body.addEventListener("keydown", function(event) {
@@ -11,6 +40,43 @@ function ModalProduct() {
         setIsProduct(false);
         }
     });
+
+    const handleAddCountAdd = (id) => {
+        const newAdditionals = countList.map((newAdditional) => {
+            if (newAdditional.id === id) {
+                return {
+                    id: newAdditional.id,
+                    name: newAdditional.name,
+                    price: newAdditional.price,
+                    count: newAdditional.count + 1
+                };
+            }
+            return newAdditional;
+        });
+        setCountList(newAdditionals);
+    }
+
+    const handleAddCountLess = (id) => {
+        const newAdditionals = countList.map((newAdditional) => {
+            if (newAdditional.id === id && newAdditional.count > 0) {
+                return {
+                    id: newAdditional.id,
+                    name: newAdditional.name,
+                    price: newAdditional.price,
+                    count: newAdditional.count - 1
+                };
+            }
+            return newAdditional;
+        });
+        setCountList(newAdditionals);
+    }
+
+    const handleDecrease = () => {
+        if (countProduct > 0) {
+          setCountProduct(countProduct - 1);
+        }
+        
+    }
     
     return (
         <article className='modal is-open' onClick={() => setIsProduct(false)}>
@@ -31,34 +97,18 @@ function ModalProduct() {
                                 <h5>Opcional</h5>
                             </div>
                             <ul>
-                                <li>
-                                    <div className='li_counter'>
-                                        <Counter />
-                                    </div>
-                                    <span className='li_tittle'>Chuleta ahumada</span>
-                                    <span className='li_price'>$ 1.500</span>
-                                </li>
-                                <li>
-                                    <div className='li_counter'>
-                                        <Counter />
-                                    </div>
-                                    <span className='li_tittle'>Filete de pollo</span>
-                                    <span className='li_price'>$ 1.000</span>
-                                </li>
-                                <li>
-                                    <div className='li_counter'>
-                                        <Counter />
-                                    </div>
-                                    <span className='li_tittle'>Carne mechada</span>
-                                    <span className='li_price'>$ 1.500</span>
-                                </li>
-                                <li>
-                                    <div className='li_counter'>
-                                        <Counter />
-                                    </div>
-                                    <span className='li_tittle'>Carne asada</span>
-                                    <span className='li_price'>$ 2.000</span>
-                                </li>
+                                {countList.map((additional, index) => {
+                                    return(
+                                        <li key={index}>
+                                            <div className='li_counter'>
+                                                <Counter handleAddCountAdd={handleAddCountAdd} handleAddCountLess={handleAddCountLess} count={additional.count} id={additional.id} />
+                                            </div>
+                                            <span className='li_tittle'>{additional.name}</span>
+                                            <span className='li_price'>{`${handlePrice(additional.price)}`}</span>
+                                        </li>
+                                    )
+                                    })
+                                }
                             </ul>
                             <div className='additionals_header'>
                                 <h2>Quita un ingrediente</h2>
@@ -78,9 +128,11 @@ function ModalProduct() {
                             </ul>
                         </div>
                         <div className='counter_container'>
-                            <>
-                                <Counter />
-                            </>
+                            <div className='counter_'>
+                                <button onClick={handleDecrease}>-</button>
+                                <h5>{countProduct}</h5>
+                                <button onClick={() => setCountProduct(countProduct + 1)}>+</button>
+                            </div>
                             <button type='submit'><span>Agregar</span><span>{handlePrice(product.price)}</span></button>
                         </div>
                     </article>

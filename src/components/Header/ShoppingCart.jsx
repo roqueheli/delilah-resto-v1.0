@@ -5,10 +5,10 @@ import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/shoppingcart.scss';
 
 function ShoppingCart() {
-  const { setIsCart } = useContext(MainContext);
+  const { setIsCart, shoppingproducts } = useContext(MainContext);
 
   return (
-    <button onClick={() => setIsCart(true)} className='shoppingcart'><FontAwesomeIcon icon={faShoppingBag} />2 ITEMS</button>
+    <button onClick={() => setIsCart(true)} className='shoppingcart'><FontAwesomeIcon icon={faShoppingBag} />{`${shoppingproducts.length} ITEMS`}</button>
   )
 }
 

@@ -18,7 +18,7 @@ function LoginInit() {
     }
 
     return (
-        <div className='modal-container modal_login' onClick={(e) => e.stopPropagation()}>
+        <article className='modal-container modal_login' onClick={(e) => e.stopPropagation()}>
             <h1>Ingresa</h1>
             <button onClick={handleClose} className='modal-close'>X</button>
             <div className='form_container'>
@@ -33,7 +33,7 @@ function LoginInit() {
                     <p>Recibirás un código de verificación en tu correo para ingresar</p>
                 </div>
             </div>
-        </div>
+        </article>
     )
 }
 

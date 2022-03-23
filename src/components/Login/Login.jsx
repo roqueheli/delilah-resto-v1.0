@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import GoogleLogin from 'react-google-login';
+import LoginMenu from './LoginMenu';
 import '../../styles/login.scss';
 
 function Login() {
-  const [loginData, setLoginData] = useState(localStorage.getItem('loginData')
-  ? JSON.parse(JSON.stringify(localStorage.getItem('loginData')))
-  : null );
-  
-  console.log('localStorage-1', localStorage);
+  const [loginData, setLoginData] = useState(localStorage.getItem('loginData') ? JSON.parse(localStorage.getItem('loginData')) : null );
+  const [loginMenu, setLoginMenu] = useState(false);
   
   // const handleLogin = (e) => {
   //   e.preventDefault();
@@ -20,9 +18,8 @@ function Login() {
   // }
 
   const handleSuccess = (googleData) => {
-    localStorage.setItem('loginData', googleData.profileObj.name);
-    setLoginData(googleData.profileObj.name);
-    console.log('localStorage-2', localStorage);
+    localStorage.setItem('loginData', JSON.stringify(googleData.profileObj));
+    setLoginData(googleData.profileObj);
   }
 
   const handleFailure = () => {
@@ -48,7 +45,8 @@ function Login() {
         </>
       :
         <div className='content_logout'>
-          <p className='logout_tittle' >{loginData}</p>
+          <p onClick={() => setLoginMenu(!loginMenu)} className='logout_tittle'>{loginData.name}</p>
+          {loginMenu ? <LoginMenu /> : null }
           <button className="button_login" onClick={handleLogout}><FontAwesomeIcon icon={faSignOutAlt} /></button>
         </div>
       }

@@ -1,28 +1,26 @@
-.address_container {
+.address__ind {
+    position: absolute;
+    width: 23rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    background-color: #fff;
-    height: 2.5rem;
-    width: 25%;
-    border-radius: .3rem;
-    input {
-        font-family: 'Barlow', sans-serif;
-        width: 65%;
-        height: 100%;
-        border: none;
-        padding: 1rem;
-        outline: 0;
+    flex-flow: column;
+    top: 6.5rem;
+    background-color: #094aa8;
+    color: #fff;
+    font-family: 'Barlow', sans-serif;
+    padding: 1rem;
+    border-radius: .2rem;
+    .address__div {
+        width: 95%;
+        margin-bottom: .6rem;
     }
-    button {
+    input {
+        padding: .3rem;
         font-family: 'Barlow', sans-serif;
-        border-radius: .3rem;
-        width: 35%;
-        height: 85%;
-        margin-right: .17rem;
+        width: 20rem;
+        border-radius: .2rem;
         border: none;
-        background-color: #e07223;
-        opacity: 0.5;
-        cursor: pointer;
+        height: 2rem;
     }
 }

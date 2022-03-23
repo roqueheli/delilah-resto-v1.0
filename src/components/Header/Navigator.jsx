@@ -1,21 +1,25 @@
 import React, { useContext } from 'react';
 import { MainContext } from '../../context/mainContext';
+import Login from '../Login/Login';
 import '../../styles/navigator.scss';
 
 function Navigator() {
-  const { data } = useContext(MainContext);
+  const { prods } = useContext(MainContext);
 
   return (
-    <nav>
-        <ul>
-          {data && data.map((categories, index) => {
-              return (
-                <li key={index}><a href={`#${categories.name.toLowerCase()}`}>{categories.name.toUpperCase()}</a></li>
-              )
-            })
-          }
-        </ul>
-    </nav>
+    <>
+      <nav>
+          <ul>
+            {prods && prods.map((categories, index) => {
+                return (
+                  <li key={index}><a href={`#${categories.name.toLowerCase()}`}>{categories.name.toUpperCase()}</a></li>
+                )
+              })
+            }
+          </ul>
+      </nav>
+      <Login />
+    </>
   )
 }
 

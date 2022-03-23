@@ -15,15 +15,15 @@ function Card({ dataProducts }) {
       {dataProducts && dataProducts.map((product, index) => {
         return (
             <div onClick={() => handleClick(product)} className='card_container' key={index}>
+                <div className='img_container'>
+                    <img src={product.avatar} alt={product.name.toLowerCase()} />
+                </div>
                 <div className='text_container'>
                     <div className='text_subcontainer'>
                         <h1>{product.name}</h1>
                         <p>{product.description}</p>
                     </div>
                     <h4>{handlePrice(product.price)}</h4>
-                </div>
-                <div className='img_container'>
-                    <img src={product.avatar} alt={product.name.toLowerCase()} />
                 </div>
             </div> 
           )
