@@ -23,4 +23,13 @@
         border: none;
         height: 2rem;
     }
+    &input:invalid {
+        animation: shake 300ms;
+        border: 1px #ff0000 solid;
+    }
+    @keyframes shake {
+        25% { transform: translateX(4px); };
+        50% { transform: translateX(-4px); };
+        75% { transform: translateX(4px); };
+    }
 }
